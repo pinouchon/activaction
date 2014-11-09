@@ -144,21 +144,22 @@ User.registerSchema = new SimpleSchema([User.schema, {
   }
 }]);
 
+User.loginSchema = new SimpleSchema({
+  email: {
+    type: String,
+    label: 'Email'
+  },
+  password: {
+    type: String,
+    label: "Mot de passe",
+    min: 3
+  }
+});
+
 User.collection = Meteor.users;
 User.collection.attachSchema(User.schema);
 if (Meteor.isClient) AutoForm.debug();
-//
-//AutoForm.hooks({
-//  registrationForm: {
-//    onSubmit: function (insertDoc, updateDoc, currentDoc) {
-//      if (customHandler(insertDoc)) {
-//        this.resetForm();
-//        this.done();
-//      }
-//      return false;
-//    }
-//  }
-//});
+
 
 
 //Meteor.users.allow({

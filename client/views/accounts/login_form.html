@@ -1,22 +1,18 @@
 <template name="loginForm">
-  <form action="index.html" id="login-form" class="orb-form">
+  {{#autoForm schema="User.loginSchema" id="loginForm" class="orb-form"}}
+    {{> loginFlashes}}
     <fieldset>
       <section>
         <div class="row">
           <div class="col col-12">
-            <label class="input"> <i class="icon-append fa fa-user"></i>
-              <input type="email" name="email" placeholder="Login">
-            </label>
+            {{> aaFormField field="email" label="Email" htmlType="input" requiredMessage="Email ou pseudo" icon="fa-user"}}
           </div>
         </div>
       </section>
       <section>
         <div class="row">
           <div class="col col-12">
-            <label class="input"> <i class="icon-append fa fa-lock"></i>
-              <input type="password" name="password" placeholder="Password">
-            </label>
-
+            {{> aaFormField field="password" label="Mot de passe" htmlType="input" requiredMessage="Mot de passe" icon="fa-lock"}}
             <div class="note"><a href="#" class="modal-opener">Forgot password?</a></div>
           </div>
         </div>
@@ -33,5 +29,5 @@
     </fieldset>
     <button type="submit" class="btn btn-default">Sign in</button>
     <a href="/register" class="btn">Register</a>
-  </form>
+  {{/autoForm}}
 </template>
