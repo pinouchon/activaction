@@ -1,0 +1,246 @@
+<template name="register">
+  {{> menu}}
+
+  <!--==test-->
+  <!--{{> insertBookForm}}-->
+  <!--==test-->
+
+  {{> flashes}}
+
+  <div class="container frontend">
+    <div class="row">
+
+      <!--<div class="page-header">-->
+      <!--<h1>Créer un compte</h1>-->
+      <!--</div>-->
+
+      <!--Content-->
+      <div class="col-md-12 margin-negative-right-left-10px">
+        <div class="row bg-dark-cold-grey">
+          <div class="col-md-6">
+            <div class="registration-left-block">
+              <h4>Déjà</h4>
+
+              <h2>534</h2>
+              <h4>membres inscrits</h4>
+
+              <p class="lead">En rejoignant Activ'action, vitae auctor elit pellentesque sit amet. Nulla hendrerit
+                gravida accumsan. Nullam viverra mi et tristique auctor. </p>
+              <ol>
+                <li>Get unlimited access to resources, such as forms, classes and other pleasure stuff</li>
+                <li>50000 users cannot be wrong! Nunc iaculis massa dui, nec sagittis quam auctor id.</li>
+                <li>Aenean tristique urna ut eros dictum, nec accumsan purus fermentum. 694+ Every Day!</li>
+                <li>Donec volutpat vehicula dui, bibendum luctus odio fermentum nec. Up to 80 Every month!</li>
+                <li>Cras ac erat sit amet turpis fermentum sodales. Yes! We promise!</li>
+              </ol>
+              <i class="fa fa-4x fa-plus-circle"></i>
+
+              <h3>Much more!</h3>
+            </div>
+          </div>
+          <!--RegForm left side ends-->
+          <div class="col-md-6 bg-cold-grey">
+            <!--<form action="#" id="registration-form" class="orb-form registration-form">-->
+            <!--type="method" meteormethod="register"-->
+            {{#autoForm schema="User.registerSchema" id="registrationForm" class="orb-form registration-form"}}
+              <header>Rejoignez Activ'action !</header>
+              <fieldset>
+                <section>
+                  {{> aaFormField field="username" label="Pseudo" htmlType="input" requiredMessage="Le pseudo est requis." icon="fa-user"}}
+                </section>
+                <div class="row">
+                  <section class="col col-6">
+                    {{> aaFormField field="profile.firstName" htmlType="input" requiredMessage="Le prénom est requis" icon="fa-user"}}
+                  </section>
+                  <section class="col col-6">
+                    {{> aaFormField field="profile.lastName" htmlType="input" requiredMessage="Le nom est requis" icon="fa-user"}}
+                  </section>
+                </div>
+                <section>
+                  <label class="select {{#if afFieldIsInvalid name="profile.gender"}}state-error{{/if}}">
+                    <i class="icon-append fa fa-user"></i>
+                    {{> afFieldInput name="profile.gender" placeholder="Sexe"}}
+                    <b class="tooltip tooltip-bottom-right">Le sexe est requis</b>
+                    <i></i>
+                  </label>
+                  {{#if afFieldIsInvalid name="profile.gender"}}
+                    <em class="invalid">{{afFieldMessage name="profile.gender"}}</em>
+                  {{/if}}
+                </section>
+              </fieldset>
+
+              <fieldset>
+                <section>
+                  {{> aaFormField field="email" htmlType="input" requiredMessage="L'email est requis" icon="fa-envelope-o"}}
+                </section>
+                <section>
+                  {{> aaFormField field="password" htmlType="input" type="password" requiredMessage="Le mot de passe est requis" icon="fa-lock"}}
+                </section>
+                <section>
+                  {{> aaFormField field="passwordConfirmation" htmlType="input" type="password" requiredMessage="Confirmation" icon="fa-lock"}}
+                </section>
+              </fieldset>
+
+              <fieldset>
+                <section>
+                  <label class="checkbox">
+                    <input type="checkbox" name="subscription" id="subscription">
+                    <i></i>Recevoir la NewsLetter</label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="terms" id="terms">
+                    <i></i>J'ai lu les <a href="#" data-toggle="modal" data-target="#termsModal">Conditions Générales
+                    d'Utilisation</a></label>
+                </section>
+              </fieldset>
+              <footer>
+                <button type="submit" class="btn btn-lg btn-default">Create account</button>
+              </footer>
+              <!--</form>-->
+            {{/autoForm}}
+          </div>
+          <!--RegForm Ends-->
+        </div>
+      </div>
+      <!--RegForm Row Ends-->
+      <div class="clearfix"></div>
+
+      <!--Simple Testimonials-->
+      <div class="simple-testimonials">
+        <h2>Just read that!</h2>
+        <!--Quote1-->
+        <div class="col-md-6">
+          <div class="cbp-qtcontent">
+            <div class="user-img"><img src="http://placehold.it/600x600" alt="User"/></div>
+            <blockquote>
+              <h3>Incredible Service!</h3>
+
+              <p>Nullam lacinia diam quis purus aliquet, sit amet consectetur dui rutrum. In hac habitasse platea
+                dictumst. Proin volutpat ligula eu semper pretium. Donec euismod sit amet dolor non posuere.</p>
+
+              <p class="rating">Rating: <i class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i></p>
+              <footer>Qo Mastroyani, HostingReview Co.</footer>
+            </blockquote>
+          </div>
+        </div>
+        <!--Quote2-->
+        <div class="col-md-6">
+          <div class="cbp-qtcontent">
+            <div class="user-img"><img src="http://placehold.it/600x600" alt="User"/></div>
+            <blockquote>
+              <h3>Killer Functionality!</h3>
+
+              <p>Maecenas ac leo scelerisque, aliquet quam a, varius velit. Donec vel diam nec felis ultrices lacinia
+                vitae at nibh. Nunc tristique velit non dui malesuada fermentum. Nulla id congue magna.</p>
+
+              <p class="rating">Rating: <i class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i></p>
+              <footer>John Marchello, ParanoidAndroid Inc.</footer>
+            </blockquote>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <!--Quote3-->
+        <div class="col-md-6">
+          <div class="cbp-qtcontent">
+            <div class="user-img"><img src="http://placehold.it/600x600" alt="User"/></div>
+            <blockquote>
+              <h3>Beautiful Girls!</h3>
+
+              <p>Quisque volutpat sed sapien vel egestas. Suspendisse potenti. Nam vel velit arcu. Vivamus varius quam
+                vitae dolor porttitor interdum varius ac augue. Suspendisse potenti.</p>
+
+              <p class="rating">Rating: <i class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i></p>
+              <footer>Chris DeBlow, Murders Inc.</footer>
+            </blockquote>
+          </div>
+        </div>
+        <!--Quote4-->
+        <div class="col-md-6">
+          <div class="cbp-qtcontent">
+            <div class="user-img"><img src="http://placehold.it/600x600" alt="User"/></div>
+            <blockquote>
+              <h3>Best Support Ever!</h3>
+
+              <p>Aenean suscipit odio sit amet risus vehicula, ut condimentum lacus pretium. Suspendisse id mauris
+                aliquam, laoreet velit at, ultricies metus. Donec euismod sit amet dolor non posuere.</p>
+
+              <p class="rating">Rating: <i class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i> <i class="fa fa-star text-orange"></i> <i
+                      class="fa fa-star text-orange"></i></p>
+              <footer>George Sanders, BurgerMac Inc.</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <!--/Simple Testimonials-->
+
+      <!--Clients-->
+      <div class="clients-block">
+        <h2>World Famous Companies</h2>
+
+        <div class="row">
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="col-md-1 col-sm-3 col-xs-4">
+            <div class="client-logo"><a href="#"><img class="img-responsive" src="http://placehold.it/600x600"
+                                                      alt="Client"></a></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!--/Clients-->
+
+      <!-- /Content-->
+    </div>
+  </div>
+
+  {{> footer}}
+</template>

@@ -1,0 +1,12 @@
+<template name="flashes">
+  {{#if flashesCount}}
+  <div class="panel panel-default container">
+    <div class="panel-body">
+      {{#each flashes}}
+      {{> flashItem}}
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+</template>

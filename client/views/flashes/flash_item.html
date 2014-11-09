@@ -1,0 +1,9 @@
+<template name="flashItem">
+  {{#if show}}
+  <div class="alert alert-{{type}} alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i>
+    </button>
+    {{message}}
+  </div>
+  {{/if}}
+</template>

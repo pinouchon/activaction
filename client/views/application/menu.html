@@ -1,0 +1,86 @@
+<template name="menu">
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
+                class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+        <!--<a class="navbar-brand text-blue" href="#">ORB</a>-->
+        <a href="/" style="margin-right: 60px"><img src="/images/logo_activaction.png" style="height: 50px"/></a>
+      </div>
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/community">Communauté</a></li>
+          <li><a href="/next-events">Next events</a></li>
+          <li><a href="/about">A propos</a></li>
+          <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <span-->
+          <!--class="caret"></span></a>-->
+          <!--<ul class="dropdown-menu" role="menu">-->
+          <!--<li><a href="portfolio.html">Portfolio</a></li>-->
+          <!--<li><a href="portfolio-item.html">Project</a></li>-->
+          <!--</ul>-->
+          <!--</li>-->
+          <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span-->
+          <!--class="caret"></span></a>-->
+          <!--<ul class="dropdown-menu" role="menu">-->
+          <!--<li><a href="blog-post.html">Blog Post</a></li>-->
+          <!--<li><a href="blog.html">Blog</a></li>-->
+          <!--</ul>-->
+          <!--</li>-->
+          <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span-->
+          <!--class="caret"></span></a>-->
+          <!--<ul class="dropdown-menu" role="menu">-->
+          <!--<li><a href="faq.html">Faq</a></li>-->
+          <!--<li><a href="about.html">About Us</a></li>-->
+          <!--<li><a href="services.html">Services</a></li>-->
+          <!--<li><a href="gallery.html">Gallery</a></li>-->
+          <!--<li><a href="registration.html">Registration</a></li>-->
+          <!--<li><a href="countdown.html">CountDown</a></li>-->
+          <!--<li><a href="contacts.php">Contact Us</a></li>-->
+          <!--</ul>-->
+          <!--</li>-->
+          <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">eCommerce<span-->
+          <!--class="caret"></span></a>-->
+          <!--<ul class="dropdown-menu" role="menu">-->
+          <!--<li><a href="products.html">Products</a></li>-->
+          <!--<li><a href="products-checkout.html">Checkout</a></li>-->
+          <!--<li><a href="product.html">Pruduct Page</a></li>-->
+          <!--</ul>-->
+          <!--</li>-->
+        </ul>
+
+        <!--Sign In Form-->
+        <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Bienvenue, {{currentUser.username}}
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="portfolio.html">Profile</a></li>
+                <li><a class='logout' href="#">Logout</a></li>
+              </ul>
+            </li>
+          {{ else }}
+            <li class="dropdown" id="menuLogin">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">
+                Connection
+              </a>
+
+              <div class="dropdown-menu">
+                {{> loginForm}}
+              </div>
+            </li>
+          {{/if}}
+        </ul>
+        <!--/Sign In Form-->
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</template>

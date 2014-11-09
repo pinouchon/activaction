@@ -1,0 +1,26 @@
+<template name="layout">
+  <!--<head>-->
+  <!--<meta charset="utf-8">-->
+  <!--<meta name="keywords" content="admin template, admin dashboard, inbox templte, calendar template, form validation">-->
+  <!--<meta name="author" content="DazeinCreative">-->
+  <!--<meta name="description" content="ORB - Powerfull and Massive Admin Dashboard Template with tonns of useful features">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <!--<title>ORB Front End | Welcome!</title>-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+  <!--<link rel="stylesheet" type="text/css" href="css/frontend.css">-->
+  <!--<script type="text/javascript" src="js/vendors/modernizr/modernizr.custom.js"></script>-->
+  <!--</head>-->
+
+  <div class="smooth-overflow frontend" id="main-content">
+    {{> yield}}
+  </div>
+
+  <div class="scroll-top-wrapper hidden-xs"><i class="fa fa-angle-up"></i></div>
+  <!--<script type="text/javascript" src="js/vendors/jquery/jquery.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/vendors/bootstrap/bootstrap.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/vendors/forms/jquery.form.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/vendors/forms/jquery.validate.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/vendors/forms/jquery.maskedinput.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/frontend.js"></script>-->
+
+</template>

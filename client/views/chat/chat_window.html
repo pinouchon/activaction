@@ -1,0 +1,139 @@
+<template name="chatWindow">
+  <div class="inner-spacer chat-window">
+    <div class="chat-container">
+      <div class="top-buttons clearfix">
+        <h2 class="margin-0px pull-left">Chat</h2>
+        <span class="badge">25</span>
+
+        <div class="btn-group btn-group-sm pull-right"><a class="btn btn-default"><i class="fa fa-thumbs-down"></i>
+          <span class="hidden-xs">Leave</span></a> <a class="btn btn-default"><i class="fa fa-times-circle"></i> <span
+            class="hidden-xs">Clear</span></a></div>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-pusher">
+          <!--<div class="chat-content">-->
+
+          <div class="chat-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+
+            <!-- Top Navigation -->
+
+            <div class="clearfix">
+              <div class="chat-messages chat-messages-with-sidebar">
+                <ul>
+                  {{#each messages}}
+                  <li class="{{leftRight}} clearfix">
+                    <div class="user-img pull-{{leftRight}}"><img src="http://placehold.it/150x150" alt="User Avatar"/>
+                    </div>
+                    <div class="chat-body clearfix">
+                      <div class="header"><span class="name">{{userName}}</span><span class="name"></span> <span
+                          class="badge">{{messageTime}}</span></div>
+                      <p>
+                        {{message}}
+                      </p>
+                    </div>
+                  </li>
+                  {{/each}}
+                  <!--<li class="left clearfix">-->
+                    <!--<div class="user-img pull-left"><img src="http://placehold.it/150x150" alt="User Avatar"/>-->
+                    <!--</div>-->
+                    <!--<div class="chat-body clearfix">-->
+                      <!--<div class="header"><span class="name">Gluck Dorris</span><span class="name"></span> <span-->
+                          <!--class="badge"><i class="fa fa-clock-o"></i>14 mins ago</span></div>-->
+                      <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor nulla vitae-->
+                        <!--interdum fermentum. Ut in vulputate neque. Praesent luctus lacus a dolor tempus-->
+                        <!--pellentesque. Cras sit amet urna eu augue suscipit eleifend. Mauris mollis pharetra-->
+                        <!--faucibus. Phasellus eu massa quam. Nunc id metus placerat neque feugiat commodo. </p>-->
+                    <!--</div>-->
+                  <!--</li>-->
+                  <!--<li class="right clearfix"><span class="user-img pull-right"> <img-->
+                      <!--src="http://placehold.it/150x150" alt="User Avatar"/> </span>-->
+
+                    <!--<div class="chat-body clearfix">-->
+                      <!--<div class="header"><span class="name">Anton Durant</span><span class=" badge"><i-->
+                          <!--class="fa fa-clock-o"></i>13 mins ago</span></div>-->
+                      <!--<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare-->
+                        <!--dolor, quis ullamcorper ligula sodales. </p>-->
+                    <!--</div>-->
+                  <!--</li>-->
+                  <!--<li class="left clearfix"><span class="user-img pull-left"> <img-->
+                      <!--src="http://placehold.it/150x150" alt="User Avatar" class="img-circle"/> </span>-->
+
+                    <!--<div class="chat-body clearfix">-->
+                      <!--<div class="header"><span class="name">Spiderman</span> <span class="badge"><i-->
+                          <!--class="fa fa-clock-o"></i>14 mins ago</span></div>-->
+                      <!--<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare-->
+                        <!--dolor, quis ullamcorper ligula sodales. </p>-->
+                    <!--</div>-->
+                  <!--</li>-->
+                  <!--<li class="right clearfix"><span class="user-img pull-right"> <img-->
+                      <!--src="http://placehold.it/150x150" alt="User Avatar" class="img-circle"/> </span>-->
+
+                    <!--<div class="chat-body clearfix">-->
+                      <!--<div class="header"><span class="name">Muchu</span>-->
+                        <!--<small class="badge"><i class="fa fa-clock-o"></i>15 mins ago</small>-->
+                      <!--</div>-->
+                      <!--<p>Nunc ipsum dui, tempus id sagittis eu, rutrum ac libero. Morbi non enim a tortor pulvinar-->
+                        <!--feugiat at consectetur nunc. Curabitur pulvinar tincidunt nisi id bibendum. Nulla ut diam-->
+                        <!--iaculis, venenatis velit hendrerit, fringilla arcu. Mauris accumsan pulvinar augue, non-->
+                        <!--blandit justo vestibulum a. Proin non eros semper, accumsan nisl in, imperdiet justo.-->
+                        <!--Pellentesque convallis commodo porttitor. Nam feugiat dignissim felis sed tempor. Sed-->
+                        <!--pretium eros nec mi semper aliquam. Phasellus eget accumsan felis. Nulla varius risus quis-->
+                        <!--dapibus porta. Donec vel magna viverra, semper velit eu, adipiscing arcu. Integer-->
+                        <!--sollicitudin elementum est eget ullamcorper. Mauris eget sollicitudin erat. Nullam et-->
+                        <!--lacinia nibh, a aliquam nunc. Curabitur ullamcorper metus ac purus commodo, sit amet-->
+                        <!--mattis arcu mollis. </p>-->
+                    <!--</div>-->
+                  <!--</li>-->
+                  <!--<li class="left clearfix"><span class="user-img pull-left"> <img-->
+                      <!--src="http://placehold.it/150x150" alt="User Avatar" class="img-circle"/> </span>-->
+
+                    <!--<div class="chat-body clearfix">-->
+                      <!--<div class="header"><span class="name">Gluck Dorris</span> <span class="badge"><i-->
+                          <!--class="fa fa-clock-o"></i>14 mins ago</span></div>-->
+                      <!--<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare-->
+                        <!--dolor, quis ullamcorper ligula sodales. </p>-->
+                    <!--</div>-->
+                  <!--</li>-->
+
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- /chat-content-inner -->
+
+          <!-- /nano -->
+
+          <!--</div>-->
+
+          <!-- /chat-content -->
+        </div>
+        <!-- /chat-pusher -->
+      </div>
+    </div>
+    <!-- /chat-container-->
+    <!--Chat-form -->
+    <div class="chat-message-form">
+      <div class="row">
+        <div class="col-md-12">
+          <textarea placeholder="Salut, comment ça va ?" class="form-control margin-bottom chat-box" rows="2"></textarea>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+          <div class="btn-group">
+            <button class=" btn btn-default"><i class="fa fa-location-arrow"></i></button>
+            <button class=" btn btn-default"><i class="fa fa-camera"></i></button>
+            <button class=" btn btn-default"><i class="fa fa-music"></i></button>
+            <button class=" btn btn-default"><i class="fa fa-file"></i></button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <button class="btn btn-info pull-right chat-button" type="button">Envoyer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- /Chat-form -->
+
+  </div>
+</template>

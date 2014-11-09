@@ -1,0 +1,29 @@
+#iron-router-progress {
+    background-color: #66CEE9;
+}
+
+#activ-boost-home {
+    background-color: rgb(0, 169, 220);
+    margin-top: 20px;
+}
+
+.blog-post-short {
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+#main-content .h2_home {
+    letter-spacing: 1px;
+    font-size: 25px;
+    margin-top: 23px;
+    margin-bottom: 23px
+}
+
+.alert {
+    margin-bottom: 12px;
+}
+
+.alert:last-child {
+    margin-bottom: 0px;
+}

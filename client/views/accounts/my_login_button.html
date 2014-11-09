@@ -1,0 +1,13 @@
+<template name="myLoginButton">
+  {{#if currentUser}}
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{userEmail}} <i
+      class="fa fa-angle-down"></i></a>
+  <ul class="dropdown-menu" role="menu" style="width: 160px">
+    <li><a href="#" class="logout">Déconnexion</a></li>
+    <li><a href="#">Mon compte</a></li>
+  </ul>
+  <!-- end dropdown-menu -->
+  {{else}}
+  <a href="#" class="login">Se connecter</a>
+  {{/if}}
+</template>
