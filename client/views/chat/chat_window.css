@@ -1,12 +1,19 @@
 .chat-window {
+    display: none;
     position: fixed;
     z-index: 1000;
     bottom: 10px;
-    right: 236px;
-    max-width: 350px;
-    max-height: 400px;
+    right: 250px;
+    width: 350px;
+    /*max-height: 400px;*/
     border-radius: 1px;
     box-shadow: 0px 0px 0px 7px #444;
+    /*overflow: auto;*/
+}
+
+.chat-messages {
+    width: 350px;
+    max-height: 250px;
     overflow: auto;
 }
 
@@ -17,6 +24,11 @@
 .chat-messages-with-sidebar {
     margin-left: 0px !important;
 }
+
 .chat-messages li.left .chat-body :before, .chat-messages li.right .chat-body :after {
     top: 24px !important;
+}
+
+.top-buttons {
+    padding-left: 15px !important;
 }

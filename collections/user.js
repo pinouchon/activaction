@@ -89,6 +89,20 @@ User.schema = new SimpleSchema({
     optional: true,
     blackbox: true
   },
+  chattingWith: {
+    type: String,
+    optional: true
+  },
+  messagesSeen: {
+    type: Object,
+    optional: true,
+    blackbox: true
+  },
+  status: {
+    type: Object,
+    optional: true,
+    blackbox: true
+  },
   createdAt: {
     type: Date,
     autoValue: function () {

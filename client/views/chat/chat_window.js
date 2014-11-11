@@ -1,33 +1,44 @@
 Template.chatWindow.helpers({
   messages: function () {
     if (!Meteor.user()) return;
-    return Message.collection.find({$or: [
-      {$and: [
-        {userId: Meteor.user()._id},
-        {partnerId: Meteor.user().chattingWith}
-      ]},
-      {$and: [
-        {partnerId: Meteor.user()._id},
-        {userId: Meteor.user().chattingWith}
-      ]}
-    ]});
+    return Message.collection.find({
+          $or: [
+            {
+              $and: [
+                {userId: Meteor.user()._id},
+                {partnerId: Meteor.user().chattingWith}
+              ]
+            },
+            {
+              $and: [
+                {partnerId: Meteor.user()._id},
+                {userId: Meteor.user().chattingWith}
+              ]
+            }
+          ]
+        },
+        {sort: {createdAt: 1}});
   },
   leftRight: function () {
     if (!Meteor.user()) return;
     return this.userId == Meteor.user()._id ? 'right' : 'left';
   },
-  userName: function() {
-    console.log('user:::', this.userId);
-    return Meteor.users.findOne({_id: this.userId}).emails[0].address.match(/^[a-zA-Z0-9]+/)[0];
+  userName: function () {
+    //console.log('user:::', this.userId);
+    return Meteor.users.findOne({_id: this.userId}).username;//emails[0].address.match(/^[a-zA-Z0-9]+/)[0];
   },
-  messageTime: function() {
+  messageTime: function () {
     moment.locale('fr');
     var createdAt = new Date(this.createdAt);
-    if (createdAt > (new Date()).getDate() - 1000*60*60*24) {
+    if (createdAt > (new Date()).getDate() - 1000 * 60 * 60 * 24) {
       return moment(createdAt).fromNow();
     } else {
       return moment(createdAt).format("Do MMMM H:mm");
     }
+  },
+  chattingWithName: function () {
+    var user = User.collection.findOne({_id: Meteor.user() && Meteor.user().chattingWith});
+    return user && user.username;
   }
 });
 
@@ -39,7 +50,7 @@ Template.chatWindow.sendMessage = function () {
 };
 
 Template.chatWindow.scrollDown = function () {
-  var $window = $(".chat-window");
+  var $window = $(".chat-messages");
   $window.scrollTop($window[0].scrollHeight + 10000);
 };
 
@@ -53,10 +64,12 @@ Template.chatWindow.rendered = function () {
   });
 
   Message.collection.find().observe({
-    added: function () {
-      Meteor.setTimeout(function () {
-        Template.chatWindow.scrollDown();
-      }, 0);
+    added: function (obj) {
+      if (Meteor.user() && Meteor.user().chattingWith == obj.userId) {
+        Meteor.setTimeout(function () {
+          Template.chatWindow.scrollDown();
+        }, 0);
+      }
     }
   })
 };
@@ -70,9 +83,18 @@ Template.chatWindow.events({
     }
     return true;
   },
+  'blur .chat-box, focus .chat-box': function() {
+    Template.userMenu.refeshCount(User.collection.findOne({_id: Meteor.user().chattingWith}));
+    return true;
+  },
   'click .chat-button': function (e) {
     e.preventDefault();
     Template.chatWindow.sendMessage();
+    return false;
+  },
+  'click .close-window': function (e) {
+    e.preventDefault();
+    $('.chat-window').hide();
     return false;
   }
 });

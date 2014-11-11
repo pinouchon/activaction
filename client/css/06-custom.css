@@ -27,3 +27,18 @@
 .alert:last-child {
     margin-bottom: 0px;
 }
+
+.frontend {
+    background: #fff;
+    margin-top: 0;
+    padding: 25px;
+    border-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.content-right {
+    background-color: #33383d;
+    border-radius: 3px;
+    padding: 15px;
+}

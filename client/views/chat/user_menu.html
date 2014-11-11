@@ -1,14 +1,14 @@
 <template name="userMenu">
-  <aside class="user-menu">
+  <!--<aside class="user-menu">-->
 
     <!-- Tabs -->
     <div class="tabs-offcanvas">
       <ul class="nav nav-tabs nav-justified">
         <!--<li><a href="#userbar-one" data-toggle="tab">Main</a></li>-->
-        <li class="active"><a href="#userbar-two" data-toggle="tab">Amis</a></li>
+        <li class="active"><a href="#userbar-two" data-toggle="tab">Membres</a></li>
         <!--<li><a href="#userbar-three" data-toggle="tab">ToDo</a></li>-->
       </ul>
-      <div class="tab-content">
+      <div class="tab-content" style="background-color: #33383d;">
 
         <!--User Primary Panel-->
         <!--<div class="tab-pane active" id="userbar-one">-->
@@ -36,7 +36,7 @@
           <!--</div>-->
         <!--</div>-->
 
-        <div class="tab-pane active" id="userbar-two">
+        <div class="tab-pane active" id="userbar-two" style="background: rgba(255,255,255,.1);">
           <div class="chat-users-menu">
             <!--<div class="nano">-->
               <!--<div class="nano-content">-->
@@ -52,7 +52,7 @@
                   <li class="user-menu-item"><a href="#"><span class="chat-name">{{userEmail}}</span><span class="user-img"><img
                       src="http://placehold.it/150x150" alt="User"/></span><span
                       class="label {{userStatus.class}}">{{userStatus.label}}</span><span
-                      class="badge">5</span></a></li>
+                      class="badge">{{unseenCount}}</span></a></li>
                   {{/each}}
                   <!--<li><a href="#"><span class="chat-name">Anton Durant</span><span class="user-img"><img-->
                       <!--src="http://placehold.it/150x150" alt="User"/></span><span-->
@@ -154,5 +154,5 @@
 
     <!-- /tabs -->
 
-  </aside>
+  <!--</aside>-->
 </template>
