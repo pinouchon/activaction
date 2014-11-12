@@ -4,9 +4,6 @@ Template.userMenu.helpers({
         {_id: {$ne: Meteor.user() && Meteor.user()._id}},
         {sort: {'status.online': -1}});
   },
-  userEmail: function () {
-    return this.emails && this.emails[0] && this.emails[0].address;
-  },
   userStatus: function () {
     return this.status && this.status.online ?
     {label: 'Online', class: 'label-success'} :
