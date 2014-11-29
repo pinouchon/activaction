@@ -19,3 +19,10 @@ Meteor.publish('messages', function (partnerId) {
 Meteor.publish(null, function () {
   return Meteor.users.find({}, {fields: {username: 1, emails: 1, status: 1, chattingWith: 1, messagesSeen: 1}});
 });
+Meteor.publish('event', function(id) {
+  return Event.collection.findOne({_id: id});
+});
+
+Meteor.publish(null, function() {
+  return Tag.collection.find();
+});

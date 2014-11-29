@@ -1,0 +1,80 @@
+<template name="eventCreate">
+  {{> menu}}
+  {{> flashes}}
+  {{> chatWindow}}
+
+  <div class="row">
+    <div class="content-left col-md-10">
+
+      <h1>Nouvel évènement</h1>
+      {{#if currentUser}}
+
+        <div class="inner-spacer" role="content">
+
+          {{#autoForm collection="Event.collection" id="eventCreateForm" type="insert" class="orb-form"}}
+            <fieldset>
+              <section>
+                <label class="label">Nom de l'évènement</label>
+                <label class="input"> <i class="icon-append fa fa-calendar"></i>
+                  {{> aaFormField field="name" label="nom" placeholder="Nom" htmlType="input" icon=""}}
+                </label>
+              </section>
+            </fieldset>
+            <fieldset>
+              <div class="row">
+                <section class="col col-6">
+                  <label class="label">Date</label>
+                  <label class="input"> <i class="icon-append fa fa-calendar"></i>
+                    {{> afFieldInput id="datepicker" name="date" type="text" placeholder="dd/mm/yyyy"}}
+                    {{#if afFieldIsInvalid name="date"}}
+                      <em class="invalid">{{afFieldMessage name="date"}}</em>
+                    {{/if}}
+                  </label>
+                </section>
+                <section class="col col-6">
+                  <label class="label">Heure</label>
+                  <label class="input"> <i class="icon-append fa fa-clock-o"></i>
+                    {{> afFieldInput name='hour' type='text' placeholder='__h__'}}
+                    {{#if afFieldIsInvalid name='hour'}}
+                      <em class="invalid">{{afFieldMessage name='hour'}}</em>
+                    {{/if}}
+                  </label>
+                </section>
+              </div>
+
+              <section>
+                <label class="label">Tags</label>
+                <label class="input"> <i class="icon-append fa fa-calendar"></i>
+                  {{> aaFormField field="tags" label="tags" placeholder="tag1, tag2..." htmlType="input" icon=""}}
+                  {{#if afFieldIsInvalid name='tags'}}
+                    <em class="invalid">{{afFieldMessage name='tags'}}</em>
+                  {{/if}}
+                </label>
+              </section>
+            </fieldset>
+
+            {{> afFieldInput name='description' placeholder='description'}}
+            {{#if afFieldIsInvalid name='description'}}
+              <em class="invalid">{{afFieldMessage name='description'}}</em>
+            {{/if}}
+
+            {{> afFieldInput name='picture' placeholder='picture'}}
+            {{#if afFieldIsInvalid name='picture'}}
+              <em class="invalid">{{afFieldMessage name='picture'}}</em>
+            {{/if}}
+
+            <button type="submit" class="btn btn-lg btn-default">Créer l'évènement</button>
+          {{/autoForm}}
+        </div>
+      {{else}}
+        <p class="alert alert-warning">Vous devez être connecté pour créer un évènement</p>
+      {{/if}}
+
+    </div>
+    <div class="content-right col-md-2">
+      {{> userMenu}}
+    </div>
+  </div>
+
+  {{> footer}}
+</template>

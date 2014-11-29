@@ -1,7 +1,9 @@
-<!--takes two args: field (eg username), and label (eg pesudo)-->
+<!--takes two args: field (eg username), and label (eg pseudo)-->
 <template name="aaFormField">
   <label class="{{htmlType}} {{#if afFieldIsInvalid name=field}}state-error{{/if}}">
+    {{#if icon}}
     <i class="icon-append fa {{icon}}"></i>
+    {{/if}}
     <!--<input type="text" name="username" placeholder="Prénom">-->
     {{> afFieldInput name=field placeholder=placeholder type=type}}
     {{#if requiredMessage}}

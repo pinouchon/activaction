@@ -47,3 +47,15 @@
     min-height: 60px;
     padding: 7px;
 }
+
+.container {
+    width: auto !important;
+}
+/*.container2 {*/
+    /*background: #fff;*/
+    /*margin-top: 0;*/
+    /*padding: 25px;*/
+    /*border-radius: 3px;*/
+    /*padding-top: 10px;*/
+    /*padding-bottom: 0;*/
+/*}*/

@@ -334,7 +334,7 @@ $_SESSION['captcha_id'] = $str;
 <!--JQuery--> 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
 <script type="text/javascript" src="js/vendors/jquery/jquery.min.js"></script> 
-<script type="text/javascript" src="js/vendors/jquery/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/vendors/jquery/jquery-ui.min.js.old"></script>
 <!--BS-->
 <script type="text/javascript" src="js/vendors/bootstrap/bootstrap.min.js"></script> 
 
